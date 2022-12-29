@@ -17,7 +17,7 @@ const Student = () => {
         setLoad(true)
         e.preventDefault();
         const { fname, lname, Rollnumber, admissionDate, college } = data;
-        await axios.post('/ragister', {fname, lname, Rollnumber, admissionDate, college }).then((res) => {
+        await axios.post('https://task-server-r0wo.onrender.com/ragister', {fname, lname, Rollnumber, admissionDate, college }).then((res) => {
             toast(res.data.message)
             setLoad(false)
             setData({...data, fname:"", lname:"",Rollnumber:"",admissionDate:"", college:"select"})
@@ -29,7 +29,7 @@ const Student = () => {
 
     useEffect(() => {
         try {
-            axios.get('/getcollege').then((res)=>{
+            axios.get('https://task-server-r0wo.onrender.com/getcollege').then((res)=>{
                 const CollegeData = res.data.college
                 setCollegeData(CollegeData)
             })
